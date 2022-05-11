@@ -1,0 +1,101 @@
+.container-fluid .title {
+    margin: 15px 0px;
+}
+
+.container-fluid .title .text-center {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+div.polaroid {
+    width: 22%;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin: 0rem 1rem;
+}
+
+div.polaroid img {
+    width: 100%;
+    margin: auto;
+    padding: auto;
+}
+
+.polaroid:hover {
+    cursor: pointer;
+    box-shadow: 2px 2px 5px black;
+}
+
+div.polaroid-text {
+    text-align: center;
+    padding: 10px 20px;
+    height: 80px;
+}
+
+.footer-bar {
+    width: 100%;
+    height: 40px;
+    border-top: 1px solid black;
+    background-color: #0ac5a8;
+    border-bottom: 1px solid black;
+}
+
+@media screen and (max-width: 1140px) {
+    div.polaroid {
+        width: 23%;
+        margin: 0.25rem 0.5rem !important;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    div.polaroid-text {
+        font-size: 16px;
+    }
+    div.polaroid {
+        width: 23%;
+        margin: 0.25rem 0.5rem !important;
+    }
+}
+
+@media screen and (max-width: 980px) {
+    div.polaroid {
+        width: 22.5%;
+    }
+}
+
+@media screen and (max-width: 890px) {
+    div.polaroid {
+        width: 22.5%;
+    }
+}
+
+@media screen and (max-width: 780px) {
+    div.polaroid {
+        width: 22%;
+    }
+    div.polaroid-text {
+        height: 110px;
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 595px) {
+    div.polaroid {
+        width: 42%;
+        margin: 0.5rem 1rem !important;
+    }
+    div.polaroid-text {
+        height: 110px;
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 495px) {
+    div.polaroid {
+        width: 100%;
+        margin: 0.5rem 1rem !important;
+    }
+    div.polaroid-text {
+        height: 70px;
+        font-size: 14px;
+    }
+}

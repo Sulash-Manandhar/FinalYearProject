@@ -1,0 +1,27 @@
+.verification-icon {
+    font-size: 2em;
+}
+
+.check {
+    color: green;
+}
+
+.cross {
+    color: red;
+}
+
+.round-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+
+/* //confirm email */
+
+.email-code-input {
+    width: 40px;
+    height: 80px;
+    padding: 10px;
+    font-size: 28px;
+}

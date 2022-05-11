@@ -1,0 +1,29 @@
+.header {
+    font-size: 28px;
+    margin: 10px;
+}
+
+.apparel-body {
+    margin: 5px 0px 0px 15px;
+}
+
+.form {
+    text-align: left;
+}
+
+#product-category {
+    max-width: 70%;
+}
+
+#product-size label {
+    margin-right: 5px;
+}
+
+.link {
+    color: black;
+    text-decoration: none;
+}
+
+.link:hover {
+    color: black;
+}

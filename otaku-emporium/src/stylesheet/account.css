@@ -1,0 +1,13 @@
+.account-sidebar {
+    width: 96%;
+}
+
+.icon-size {
+    width: 16;
+    font-size: 1.2em;
+    height: 16;
+}
+
+.pointer {
+    cursor: pointer;
+}

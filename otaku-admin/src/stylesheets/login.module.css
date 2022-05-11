@@ -1,0 +1,58 @@
+.form {
+    height: 100%;
+    margin: auto;
+}
+
+.login {
+    text-align: center !important;
+}
+
+.loginMainContainer {
+    width: 500px;
+    height: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+    padding: 10px;
+    box-shadow: 2px 5px 10px 1px black;
+}
+
+.loginHeader {
+    width: 100%;
+    font-size: 2em;
+    font-weight: bold;
+    color: #0ac5a8;
+    line-height: 2.4em;
+    margin-top: 40px;
+}
+
+.loginHeader img {
+    width: 80%;
+    display: block;
+    margin: auto;
+}
+
+.errorDisplay {
+    color: #dc3545;
+    font-size: 15px;
+    margin: 5px;
+}
+
+input:not([type="submit"]) {
+    width: 70%;
+    padding: 5px;
+    border: 1px solid;
+    border-radius: 5px;
+}
+
+.inputContainer {
+    margin: 12px;
+}
+
+input[type="submit"] {
+    width: 40%;
+    padding: 6px;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 18px;
+}
