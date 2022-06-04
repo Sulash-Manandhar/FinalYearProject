@@ -97,7 +97,7 @@ router.post("/sendEmailVerificationCode", (req, res) => {
     secure: false, // true for 465, false for other ports
     auth: {
       user: "suyash.manandhar@outlook.com", // generated ethereal user
-      pass: "Sula$h123", // generated ethereal password
+      pass: "password", // generated ethereal password
     },
     tls: {
       rejectUnauthorized: false,
@@ -194,7 +194,7 @@ router.post("/sendChangePasswordVerificationCode", (req, res) => {
     secure: false, // true for 465, false for other ports
     auth: {
       user: "suyash.manandhar@outlook.com", // generated ethereal user
-      pass: "Sula$h123", // generated ethereal password
+      pass: "password", // generated ethereal password
     },
     tls: {
       rejectUnauthorized: false,
