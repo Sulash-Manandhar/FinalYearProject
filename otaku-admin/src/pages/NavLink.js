@@ -82,7 +82,7 @@ export default class NavLink extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.state.data.map((item) => (
+            {this.state.data?.map((item) => (
               <tr key={item.id}>
                 <td className={style.id}>{item.id}</td>
                 <td>{item.tab_name}</td>

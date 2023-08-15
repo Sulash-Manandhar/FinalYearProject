@@ -42,7 +42,6 @@ export const Dashboard = () => {
       newUserOrderData.isPaid = tempOrderData[0].isPaid;
     }
 
-    console.log(newUserOrderData);
     axios
       .post("http://localhost:4600/order/updateOrder", newUserOrderData)
       .then((res) => {
@@ -82,7 +81,7 @@ export const Dashboard = () => {
           </tr>
         </thead>
         <tbody>
-          {orderData.map((item, index) => (
+          {orderData?.map((item, index) => (
             <tr key={index}>
               <td>{item.id}</td>
               <td>

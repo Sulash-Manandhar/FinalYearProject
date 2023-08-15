@@ -1,1 +1,4 @@
 node_modules
+/client/node_modules
+/otaku-admin/node_modules
+/otaku-emporium/node_modules
