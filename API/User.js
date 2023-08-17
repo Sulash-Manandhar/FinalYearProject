@@ -20,11 +20,11 @@ router.get("/getUsers", (req, res) => {
 
 //ban users
 router.put("/banUser", (req, res) => {
-  const userId = req.body.userId;
-  const banValue = req.body.banValue;
+  const { id, value } = req.body;
+  console.log({ userId: id, value });
 
   const sqlUpdate = `UPDATE users SET ban = ? WHERE id = ?;`;
-  db.query(sqlUpdate, [banValue, userId], (err, result) => {
+  db.query(sqlUpdate, [value, id], (err, result) => {
     if (err) {
       console.log(err);
       return res.status(500).send(err);
@@ -243,9 +243,9 @@ router.post("/setUserVerificationTrue/:id", (req, res) => {
 
 //toggle verification (admin)
 router.post("/toggleUserVerification", (req, res) => {
-  const { id, verifyValue } = req.body;
+  const { id, value } = req.body;
   sqlUpdate = `update users set verified = ? where id = ? `;
-  db.query(sqlUpdate, [verifyValue, id], (error, result) => {
+  db.query(sqlUpdate, [value, id], (error, result) => {
     if (error) {
       console.log(error);
       return res.status(500).json({
