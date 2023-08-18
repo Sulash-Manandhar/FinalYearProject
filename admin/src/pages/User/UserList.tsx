@@ -7,7 +7,6 @@ import {
   Tbody,
   Flex,
   Heading,
-  Button,
   Spinner,
 } from "@chakra-ui/react";
 import { getUserList } from "@src/api";
@@ -15,8 +14,6 @@ import NoData from "@src/components/NoData";
 import UserListItem from "@src/components/User/UserListItem";
 import { UserDetail } from "@src/schema/user/UserSchema";
 import { useQuery } from "@tanstack/react-query";
-
-import { NavLink } from "react-router-dom";
 
 const UserList = () => {
   const {
@@ -37,14 +34,9 @@ const UserList = () => {
 
   return (
     <Flex flexDir="column" gap={5}>
-      <Flex w="100%" justifyContent="space-between">
-        <Heading as="h2" size="lg">
-          User List
-        </Heading>
-        <Button as={NavLink} size="sm" colorScheme="green" to="/users/add">
-          Add User
-        </Button>
-      </Flex>
+      <Heading as="h2" size="lg">
+        User List
+      </Heading>
       <TableContainer>
         <Table size="sm">
           <Thead>

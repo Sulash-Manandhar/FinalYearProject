@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import { AiFillDelete, AiFillEdit } from "react-icons/ai";
 import { Binary } from "@src/schema";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { toggleUserBan, toggleUserVerification } from "@src/api";
+import { deleteUser, toggleUserBan, toggleUserVerification } from "@src/api";
 
 interface Props {
   userData: UserDetail;
@@ -30,6 +30,13 @@ const UserListItem: React.FC<Props> = (props) => {
   const banMutation = useMutation({
     mutationKey: ["update-user-ban-status"],
     mutationFn: (data: UpdateVerificationType) => toggleUserBan(data),
+    onSettled: () =>
+      queryClient.invalidateQueries({ queryKey: ["get-user-list"] }),
+  });
+
+  const { mutate } = useMutation({
+    mutationKey: ["delete-user"],
+    mutationFn: () => deleteUser(userData.id),
     onSettled: () =>
       queryClient.invalidateQueries({ queryKey: ["get-user-list"] }),
   });
@@ -100,6 +107,7 @@ const UserListItem: React.FC<Props> = (props) => {
               _hover={{
                 color: "red",
               }}
+              onClick={() => mutate()}
             />
           </Tooltip>
         </Flex>

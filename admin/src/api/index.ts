@@ -24,3 +24,10 @@ export const toggleUserBan = async (data: any) => {
     data,
   }).then((res) => res?.data);
 };
+
+export const deleteUser = async (id: number) => {
+  return axios({
+    method: "DELETE",
+    url: `users/deleteUser/${id}`,
+  }).then((res) => res?.data);
+};

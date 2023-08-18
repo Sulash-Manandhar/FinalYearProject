@@ -21,7 +21,6 @@ router.get("/getUsers", (req, res) => {
 //ban users
 router.put("/banUser", (req, res) => {
   const { id, value } = req.body;
-  console.log({ userId: id, value });
 
   const sqlUpdate = `UPDATE users SET ban = ? WHERE id = ?;`;
   db.query(sqlUpdate, [value, id], (err, result) => {

@@ -1,39 +1,39 @@
 {
-    "name": "reactapp",
-    "version": "1.0.0",
-    "description": "React Server",
-    "main": "server.js",
-    "scripts": {
-        "start": "node server.js",
-        "server": "nodemon server.js",
-        "client": "npm start --prefix otaku-admin",
-        "watchDB": "json-server --watch ./otaku-admin/data/db.json --port 3004",
-        "dev": "concurrently \"npm run server\" \"npm run client\""
-    },
-    "author": "",
-    "license": "ISC",
-    "dependencies": {
-        "bcrypt": "^5.0.1",
-        "body-parser": "^1.19.1",
-        "classnames": "^2.3.1",
-        "cookie-parser": "^1.4.6",
-        "cors": "^2.8.5",
-        "express": "^4.17.2",
-        "express-fileupload": "^1.2.1",
-        "express-session": "^1.17.2",
-        "khalti-checkout-web": "^2.2.0",
-        "mysql2": "^2.3.3",
-        "nodemailer": "^6.7.3",
-        "passport": "^0.5.2",
-        "passport-local": "^1.0.0",
-        "react-icons": "^4.3.1",
-        "react-router": "^6.2.1",
-        "react-router-dom": "^5.3.0",
-        "redux": "^4.1.2",
-        "uuid": "^8.3.2"
-    },
-    "devDependencies": {
-        "concurrently": "^7.0.0",
-        "nodemon": "^2.0.15"
-    }
+  "name": "reactapp",
+  "version": "1.0.0",
+  "description": "React Server",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix otaku-admin",
+    "watchDB": "json-server --watch ./otaku-admin/data/db.json --port 3004",
+    "dev": "concurrently \"yarn run server\" \"npm run client\""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.1",
+    "classnames": "^2.3.1",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "express": "^4.17.2",
+    "express-fileupload": "^1.2.1",
+    "express-session": "^1.17.2",
+    "khalti-checkout-web": "^2.2.0",
+    "mysql2": "^2.3.3",
+    "nodemailer": "^6.7.3",
+    "passport": "^0.5.2",
+    "passport-local": "^1.0.0",
+    "react-icons": "^4.3.1",
+    "react-router": "^6.2.1",
+    "react-router-dom": "^5.3.0",
+    "redux": "^4.1.2",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "concurrently": "^7.0.0",
+    "nodemon": "^2.0.15"
+  }
 }
