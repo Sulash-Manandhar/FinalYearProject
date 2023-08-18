@@ -31,3 +31,17 @@ export const deleteUser = async (id: number) => {
     url: `users/deleteUser/${id}`,
   }).then((res) => res?.data);
 };
+
+export const getApparelList = async () => {
+  return axios({
+    method: "GET",
+    url: "/apparels/getApparels",
+  }).then((res) => res?.data);
+};
+
+export const deleteApparel = async (id: number) => {
+  return axios({
+    method: "DELETE",
+    url: `apparels/deleteApparels/${id}`,
+  }).then((res) => res?.data);
+};

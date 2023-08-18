@@ -56,7 +56,7 @@ const UserListItem: React.FC<Props> = (props) => {
   };
 
   return (
-    <Tr key={userData.id}>
+    <Tr>
       <Td>{index}</Td>
       <Td>
         {userData.fname}

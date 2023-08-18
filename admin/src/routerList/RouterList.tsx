@@ -1,12 +1,15 @@
 import Layout from "@src/layouts";
+import ApparelList from "@src/pages/Apparels/ApparelList";
 import UserList from "@src/pages/User/UserList";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import NotFound from "./NotFound";
 
 const RouterList = () => {
   const browserList = createBrowserRouter([
     {
       path: "/",
       element: <Layout />,
+      errorElement: <NotFound />,
       children: [
         {
           path: "/",
@@ -16,9 +19,10 @@ const RouterList = () => {
           path: "/users",
           element: <UserList />,
         },
+
         {
-          path: "/products",
-          element: <div>Products</div>,
+          path: "/product/apparels",
+          element: <ApparelList />,
         },
       ],
     },
