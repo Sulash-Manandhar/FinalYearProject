@@ -7,30 +7,30 @@ import {
   Tr,
   Th,
   Tbody,
-  Spinner,
   Button,
+  Spinner,
 } from "@chakra-ui/react";
-import { getApparelList } from "@src/api";
-import ApparelListItem from "@src/components/Apparels/ApparelListItem";
-import NoData from "@src/components/NoData";
-import { ApparelDetail } from "@src/schema/apparels";
+import { getDrinkwareList } from "@src/api";
+import DrinkwareListItem from "@src/components/drinkware/DrinkwareListItem";
+import NoData from "@src/components/noData";
+import { DrinkwareDetail } from "@src/schema/drinkware";
 import { useQuery } from "@tanstack/react-query";
 import { NavLink } from "react-router-dom";
 
-const ApparelList = () => {
+const DrinkwareList = () => {
   const {
-    data: apparelList,
+    data: drinkwareList,
     isLoading,
     isError,
-  } = useQuery<ApparelDetail[]>({
-    queryKey: ["get-apparel-list"],
-    queryFn: () => getApparelList(),
+  } = useQuery<DrinkwareDetail[]>({
+    queryKey: ["get-drinkware-list"],
+    queryFn: () => getDrinkwareList(),
   });
 
   if (isLoading) {
     return <Spinner />;
   }
-  if (!apparelList?.length || isError) {
+  if (!drinkwareList?.length || isError) {
     return <NoData />;
   }
 
@@ -38,7 +38,7 @@ const ApparelList = () => {
     <Flex flexDir="column" gap={5}>
       <Flex justifyContent="space-between">
         <Heading as="h2" size="lg">
-          Apparel List
+          Drinkware List
         </Heading>
         <Button colorScheme="green" as={NavLink} to="/product/apparels/add">
           Add
@@ -50,20 +50,16 @@ const ApparelList = () => {
             <Tr>
               <Th>SN</Th>
               <Th>Name</Th>
-              <Th>Category</Th>
               <Th>Price</Th>
               <Th>Color</Th>
-              <Th>Small Size</Th>
-              <Th>Medium Size</Th>
-              <Th>Large Size</Th>
               <Th>Action</Th>
             </Tr>
           </Thead>
           <Tbody>
-            {apparelList.map((item, index: number) => (
-              <ApparelListItem
+            {drinkwareList.map((item, index) => (
+              <DrinkwareListItem
                 key={item.id}
-                apparelData={item}
+                drinkwareData={item}
                 index={++index}
               />
             ))}
@@ -74,4 +70,4 @@ const ApparelList = () => {
   );
 };
 
-export default ApparelList;
+export default DrinkwareList;

@@ -10,8 +10,8 @@ import {
   Spinner,
 } from "@chakra-ui/react";
 import { getUserList } from "@src/api";
-import NoData from "@src/components/NoData";
-import UserListItem from "@src/components/User/UserListItem";
+import NoData from "@src/components/noData";
+import UserListItem from "@src/components/user/UserListItem";
 import { UserDetail } from "@src/schema/user/UserSchema";
 import { useQuery } from "@tanstack/react-query";
 

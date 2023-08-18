@@ -1,5 +1,5 @@
 import { Box, Flex } from "@chakra-ui/react";
-import Sidebar from "@src/components/Sidebar";
+import Sidebar from "@src/components/siderbar";
 import { Outlet } from "react-router";
 
 const Layout = () => {

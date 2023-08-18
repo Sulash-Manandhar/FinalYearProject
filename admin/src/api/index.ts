@@ -45,3 +45,17 @@ export const deleteApparel = async (id: number) => {
     url: `apparels/deleteApparels/${id}`,
   }).then((res) => res?.data);
 };
+
+export const getDrinkwareList = async () => {
+  return axios({
+    method: "GET",
+    url: "drinkware/getDrinkware",
+  }).then((res) => res?.data);
+};
+
+export const deleteDrinkware = async (id: number) => {
+  return axios({
+    method: "DELETE",
+    url: `drinkware/deleteDrinkware/${id}`,
+  }).then((res) => res?.data);
+};
