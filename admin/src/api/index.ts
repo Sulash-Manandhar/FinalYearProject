@@ -42,20 +42,34 @@ export const getApparelList = async () => {
 export const deleteApparel = async (id: number) => {
   return axios({
     method: "DELETE",
-    url: `apparels/deleteApparels/${id}`,
+    url: `/apparels/deleteApparels/${id}`,
   }).then((res) => res?.data);
 };
 
 export const getDrinkwareList = async () => {
   return axios({
     method: "GET",
-    url: "drinkware/getDrinkware",
+    url: "/drinkware/getDrinkware",
   }).then((res) => res?.data);
 };
 
 export const deleteDrinkware = async (id: number) => {
   return axios({
     method: "DELETE",
-    url: `drinkware/deleteDrinkware/${id}`,
+    url: `/drinkware/deleteDrinkware/${id}`,
   }).then((res) => res?.data);
+};
+
+export const getAccessoriesList = async () => {
+  return axios({
+    method: "GET",
+    url: "/accessories/getAccessories",
+  }).then((res) => res.data);
+};
+
+export const deleteAccessorie = async (id: number) => {
+  return axios({
+    method: "DELETE",
+    url: `/accessories/deleteAccessories/${id}`,
+  }).then((res) => res.data);
 };
