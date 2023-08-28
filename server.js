@@ -84,13 +84,13 @@ app.post("/uploads", cors(), (req, res) => {
     return res.status(400).json({ msg: "No file upload" });
   }
   const file = req.files.file;
-  file.mv(`${__dirname}/otaku-emporium/public/uploads/${file.name}`, (err) => {
+  file.mv(`${__dirname}/client/src/assets/uploads/${file.name}`, (err) => {
     if (err) {
       console.log(err);
       return res.status(500).send(err);
     }
     res.json({ fileName: file.name, filePath: `/uploads/${file.name}` });
-  }); //path for file upload
+  });
 });
 
 //hero slider

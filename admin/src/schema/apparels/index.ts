@@ -13,3 +13,5 @@ export interface ApparelDetail {
   imagePath: string;
   is_featured: Binary;
 }
+
+export type ApparelFormSchema = Omit<ApparelDetail, "is_featured" | "id">;

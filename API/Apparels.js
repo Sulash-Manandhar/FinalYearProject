@@ -29,15 +29,17 @@ router.get("/getApparels/:id", (req, res) => {
 
 //addApparels
 router.post("/addApparels", (req, res) => {
-  const name = req.body.name;
-  const category = req.body.category;
-  const description = req.body.description;
-  const color = req.body.color;
-  const smallSize = req.body.smallSize;
-  const mediumSize = req.body.mediumSize;
-  const largeSize = req.body.largeSize;
-  const price = req.body.price;
-  const imagePath = req.body.imagePath;
+  const {
+    name,
+    category,
+    description,
+    color,
+    small_size: smallSize,
+    medium_size: mediumSize,
+    large_size: largeSize,
+    price,
+    imagePath,
+  } = req.body;
 
   const addApparels = `INSERT INTO apparels (
           name,

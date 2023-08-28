@@ -20,7 +20,6 @@ const Sidebar = () => {
       color="white"
       padding={5}
       gap={5}
-      minW="16vw"
     >
       {NavLinkData.map((item) => {
         if (item.children?.length) {
@@ -36,13 +35,19 @@ const Sidebar = () => {
                 <AccordionPanel p={0}>
                   <Flex flexDir="column" gap={3} mt={5}>
                     {item.children.map((child) => (
-                      <NavLink to={child.link} key={child.id}>
-                        <Flex alignItems="center" gap={3}>
-                          <Icon as={BsArrowReturnRight} fontSize="1.2rem" />
-                          <Icon as={child.icon} fontSize="1.2rem" />
-                          <Text>{child.label}</Text>
-                        </Flex>
-                      </NavLink>
+                      <Tooltip
+                        label={child.label}
+                        key={child.id}
+                        placement="right"
+                      >
+                        <NavLink to={child.link} key={child.id}>
+                          <Flex alignItems="center" gap={3}>
+                            <Icon as={BsArrowReturnRight} fontSize="1.2rem" />
+                            <Icon as={child.icon} fontSize="1.2rem" />
+                            <Text>{child.label}</Text>
+                          </Flex>
+                        </NavLink>
+                      </Tooltip>
                     ))}
                   </Flex>
                 </AccordionPanel>

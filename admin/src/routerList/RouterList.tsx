@@ -5,6 +5,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import NotFound from "./NotFound";
 import DrinkwareList from "@src/pages/drinkware/DrinkwareList";
 import AccessoriesList from "@src/pages/accessories/AccessoriesList";
+import AddApparel from "@src/pages/apparels/AddApparel";
 
 const RouterList = () => {
   const browserList = createBrowserRouter([
@@ -31,7 +32,7 @@ const RouterList = () => {
         },
         {
           path: "/product/apparels/add",
-          element: <div>Add Apparels</div>,
+          element: <AddApparel />,
         },
         {
           path: "/product/apparels/edit/:id",

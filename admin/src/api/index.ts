@@ -1,3 +1,4 @@
+import { ApparelFormSchema } from "@src/schema/apparels";
 import axios from "axios";
 
 axios.defaults.baseURL = "http://localhost:4600";
@@ -39,6 +40,14 @@ export const getApparelList = async () => {
   }).then((res) => res?.data);
 };
 
+export const addApparel = async (data: ApparelFormSchema) => {
+  return axios({
+    method: "POST",
+    url: "/apparels/addApparels",
+    data,
+  });
+};
+
 export const deleteApparel = async (id: number) => {
   return axios({
     method: "DELETE",
@@ -72,4 +81,15 @@ export const deleteAccessorie = async (id: number) => {
     method: "DELETE",
     url: `/accessories/deleteAccessories/${id}`,
   }).then((res) => res.data);
+};
+
+export const addFile = async (data: FormData) => {
+  return axios({
+    method: "POST",
+    url: "/uploads",
+    data,
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  }).then((res) => res?.data);
 };
