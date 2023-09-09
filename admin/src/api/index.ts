@@ -1,4 +1,4 @@
-import { ApparelFormSchema } from "@src/schema/apparels";
+import { ApparelDetail, ApparelFormSchema } from "@src/schema/apparels";
 import axios from "axios";
 
 axios.defaults.baseURL = "http://localhost:4600";
@@ -44,6 +44,21 @@ export const addApparel = async (data: ApparelFormSchema) => {
   return axios({
     method: "POST",
     url: "/apparels/addApparels",
+    data,
+  });
+};
+
+export const getApparelDetail = async (id: number) => {
+  return axios({
+    method: "GET",
+    url: `/apparels/getApparels/${id}`,
+  }).then((res) => res?.data);
+};
+
+export const editApparel = async (data: ApparelDetail) => {
+  return axios({
+    method: "PUT",
+    url: "/apparels/editApparels",
     data,
   });
 };

@@ -23,7 +23,7 @@ router.get("/getApparels/:id", (req, res) => {
       console.log(err);
       return res.send(err);
     }
-    res.send(result);
+    res.send(result?.[0] || result);
   });
 });
 
@@ -77,16 +77,18 @@ router.post("/addApparels", (req, res) => {
 
 //edit apparels
 router.put("/editApparels", (req, res) => {
-  const id = req.body.id;
-  const name = req.body.name;
-  const category = req.body.category;
-  const description = req.body.description;
-  const color = req.body.color;
-  const smallSize = req.body.smallSize;
-  const mediumSize = req.body.mediumSize;
-  const largeSize = req.body.largeSize;
-  const price = req.body.price;
-  const imagePath = req.body.imagePath;
+  const {
+    id,
+    name,
+    category,
+    description,
+    color,
+    small_size: smallSize,
+    medium_size: mediumSize,
+    large_size: largeSize,
+    price,
+    imagePath,
+  } = req.body;
 
   const updateApparel = `Update apparels SET 
       name = ?,

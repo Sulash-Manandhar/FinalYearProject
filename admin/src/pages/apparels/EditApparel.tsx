@@ -10,15 +10,19 @@ import {
   Heading,
   Input,
   Select,
+  Spinner,
   Textarea,
   useToast,
 } from "@chakra-ui/react";
-import { addApparel, addFile } from "@src/api";
-import { ApparelFormSchema } from "@src/schema/apparels";
-import { useMutation } from "@tanstack/react-query";
+import { addFile, editApparel, getApparelDetail } from "@src/api";
+import NoData from "@src/components/noData";
+import { ApparelDetail } from "@src/schema/apparels";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { useState } from "react";
+import { useNavigate, useParams } from "react-router";
 
-const DEFAULT_VALUES: ApparelFormSchema = {
+const DEFAULT_VALUES: ApparelDetail = {
+  id: 0,
   name: "",
   category: "",
   color: "",
@@ -28,24 +32,39 @@ const DEFAULT_VALUES: ApparelFormSchema = {
   small_size: 1,
   medium_size: 1,
   large_size: 1,
+  is_featured: 0,
 };
 
-const AddApparel = () => {
+const EditApparel = () => {
   const toast = useToast();
+  const navigate = useNavigate();
+  const { id } = useParams<{ id: string }>();
 
-  const [apparelData, setApparelData] =
-    useState<ApparelFormSchema>(DEFAULT_VALUES);
+  const [apparelData, setApparelData] = useState<ApparelDetail>(DEFAULT_VALUES);
   const [fileData, setFileData] = useState<File | null>(null);
 
-  const addApparelMutation = useMutation({
+  const { data: apparelDetail, isLoading } = useQuery<ApparelDetail>({
+    queryKey: ["get-apparel-details", id],
+    queryFn: () => getApparelDetail(Number(id)),
+    onSettled: (data) => {
+      if (data) {
+        setApparelData(data);
+      }
+    },
+    enabled: !!id,
+    staleTime: Infinity,
+  });
+
+  const editApparelMutation = useMutation({
     mutationKey: ["add-new-apparel"],
-    mutationFn: (data: ApparelFormSchema) => addApparel(data),
+    mutationFn: (data: ApparelDetail) => editApparel(data),
     onSuccess: () => {
       toast({
         status: "success",
-        title: "Successfully added new apparel",
+        title: "Successfully edit a apparel",
         position: "bottom",
       });
+      navigate("/product/apparels");
       setApparelData(DEFAULT_VALUES);
     },
     onError: () => {
@@ -61,7 +80,7 @@ const AddApparel = () => {
     mutationKey: ["add-file"],
     mutationFn: (file: FormData) => addFile(file),
     onSuccess: () => {
-      addApparelMutation.mutate(apparelData);
+      editApparelMutation.mutate(apparelData);
     },
     onError: () => {
       toast({
@@ -109,10 +128,18 @@ const AddApparel = () => {
     addFileMutation.mutate(formData);
   };
 
+  if (!id || !apparelDetail) {
+    return <NoData />;
+  }
+
+  if (isLoading) {
+    return <Spinner />;
+  }
+
   return (
     <Flex flexDir="column" gap={4}>
       <Heading as="h2" size="lg">
-        Add New Apparel
+        Edit Apparel
       </Heading>
 
       <form onSubmit={handleSubmit}>
@@ -239,7 +266,7 @@ const AddApparel = () => {
           <Button
             type="submit"
             colorScheme="facebook"
-            isLoading={addApparelMutation.isLoading}
+            isLoading={editApparelMutation.isLoading}
           >
             Add Apparel
           </Button>
@@ -249,4 +276,4 @@ const AddApparel = () => {
   );
 };
 
-export default AddApparel;
+export default EditApparel;

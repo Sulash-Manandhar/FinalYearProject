@@ -6,6 +6,7 @@ import NotFound from "./NotFound";
 import DrinkwareList from "@src/pages/drinkware/DrinkwareList";
 import AccessoriesList from "@src/pages/accessories/AccessoriesList";
 import AddApparel from "@src/pages/apparels/AddApparel";
+import EditApparel from "@src/pages/apparels/EditApparel";
 
 const RouterList = () => {
   const browserList = createBrowserRouter([
@@ -36,7 +37,7 @@ const RouterList = () => {
         },
         {
           path: "/product/apparels/edit/:id",
-          element: <div>Edit Apparels</div>,
+          element: <EditApparel />,
         },
         {
           path: "/product/drinkware",
