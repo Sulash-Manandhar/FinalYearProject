@@ -6,3 +6,5 @@ export interface DrinkwareDetail {
   price: number;
   imagePath: string;
 }
+
+export type DrinkwareFormDetail = Omit<DrinkwareDetail, "id">;

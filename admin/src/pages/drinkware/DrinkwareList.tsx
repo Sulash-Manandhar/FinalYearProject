@@ -40,7 +40,7 @@ const DrinkwareList = () => {
         <Heading as="h2" size="lg">
           Drinkware List
         </Heading>
-        <Button colorScheme="green" as={NavLink} to="/product/apparels/add">
+        <Button colorScheme="green" as={NavLink} to="/product/drinkware/add">
           Add
         </Button>
       </Flex>

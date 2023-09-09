@@ -7,6 +7,7 @@ import DrinkwareList from "@src/pages/drinkware/DrinkwareList";
 import AccessoriesList from "@src/pages/accessories/AccessoriesList";
 import AddApparel from "@src/pages/apparels/AddApparel";
 import EditApparel from "@src/pages/apparels/EditApparel";
+import AddDrinkware from "@src/pages/drinkware/AddDrinkware";
 
 const RouterList = () => {
   const browserList = createBrowserRouter([
@@ -45,7 +46,7 @@ const RouterList = () => {
         },
         {
           path: "/product/drinkware/add",
-          element: <div>Add Drinkware</div>,
+          element: <AddDrinkware />,
         },
         {
           path: "/product/drinkware/edit/:id",

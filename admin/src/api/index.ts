@@ -1,4 +1,5 @@
 import { ApparelDetail, ApparelFormSchema } from "@src/schema/apparels";
+import { DrinkwareFormDetail } from "@src/schema/drinkware";
 import axios from "axios";
 
 axios.defaults.baseURL = "http://localhost:4600";
@@ -32,6 +33,11 @@ export const deleteUser = async (id: number) => {
     url: `users/deleteUser/${id}`,
   }).then((res) => res?.data);
 };
+
+/**
+ *
+ * APPARELS API
+ */
 
 export const getApparelList = async () => {
   return axios({
@@ -70,11 +76,24 @@ export const deleteApparel = async (id: number) => {
   }).then((res) => res?.data);
 };
 
+/**
+ *
+ * DRINKWARE
+ */
+
 export const getDrinkwareList = async () => {
   return axios({
     method: "GET",
     url: "/drinkware/getDrinkware",
   }).then((res) => res?.data);
+};
+
+export const addDrinkware = async (data: DrinkwareFormDetail) => {
+  return axios({
+    method: "POST",
+    url: "/drinkware/addDrinkware",
+    data,
+  });
 };
 
 export const deleteDrinkware = async (id: number) => {
@@ -84,6 +103,10 @@ export const deleteDrinkware = async (id: number) => {
   }).then((res) => res?.data);
 };
 
+/**
+ *
+ * ACCESSORIES
+ */
 export const getAccessoriesList = async () => {
   return axios({
     method: "GET",
